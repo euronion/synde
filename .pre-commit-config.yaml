@@ -2,12 +2,17 @@ repos:
 -   repo: https://github.com/pre-commit/pre-commit-hooks
     rev: v4.0.1
     hooks:
-    -   id: check-yaml
+    - id: check-yaml
 -   repo: https://github.com/psf/black
-    rev: 21.6b0
+    rev: 21.7b0
     hooks:
-    -   id: black
+    - id: black
 -   repo: https://github.com/fsfe/reuse-tool
     rev: v0.13.0
     hooks:
-    -   id: reuse
+    - id: reuse
+-   repo: https://github.com/snakemake/snakefmt
+    rev: 0.4.2
+    hooks:
+    - id: snakefmt
+
