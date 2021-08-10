@@ -13,13 +13,12 @@ regions:
         - Burkina Faso
         - Botswana
         - Central African Republic
-        # Breaks loading in Julia due to single quote (') and escaping it following YAML specification does not work
-        # - Côte d'Ivoire
+        - Côte d´Ivoire
         - Cameroon
         - Congo, The Democratic Republic of the
         - Congo
         - Comoros
-        - Cabo Verde
+        - Cape Verde
         - Djibouti
         - Algeria
         - Egypt
@@ -88,7 +87,8 @@ regions:
         - Hong Kong
         - Indonesia
         - India
-        - British Indian Ocean Territory
+        # bad population data, breaks GEGIS
+        # - British Indian Ocean Territory
         - Iran, Islamic Republic of
         - Iraq
         - Israel
@@ -145,7 +145,7 @@ regions:
         - Bosnia and Herzegovina
         - Belarus
         - Switzerland
-        - Czechia
+        - Czech Republic
         - Germany
         - Denmark
         - Spain
@@ -231,7 +231,8 @@ regions:
         - Virgin Islands, British
         - Virgin Islands, U.S.
     Oceania:
-        - American Samoa
+        # bad population data, breaks GEGIS
+        # - American Samoa
         - Australia
         - Cook Islands
         - Fiji
@@ -258,7 +259,7 @@ regions:
         - Samoa
     SouthAmerica:
         - Argentina
-        - Bolivia, Plurinational State of
+        - Bolivia
         - Brazil
         - Chile
         - Colombia
