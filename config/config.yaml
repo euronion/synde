@@ -1,0 +1,3 @@
+version: "0.1"
+
+region: "Region1" # The region to create the synthetic demand for
