@@ -1,0 +1,11 @@
+name: synde
+channels:
+  - https://conda.anaconda.org/gurobi
+  - defaults
+dependencies:
+  - snakemake
+  - ipykernel
+  - pandas
+  - xarray
+  - pre-commit
+prefix: /home/pypsa/miniconda3/envs/synde
