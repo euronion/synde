@@ -5,271 +5,284 @@ region: World
 
 # Definition for the regions
 # Based on GADM0 list for taken from GEGIS
+# Assignment to continents automatically taken from python package pycountry_convert
 regions:
     Africa:
-        - Angola
-        - Burundi
-        - Benin
-        - Burkina Faso
-        - Botswana
-        - Central African Republic
-        - Côte d´Ivoire
-        - Cameroon
-        - Congo, The Democratic Republic of the
-        - Congo
-        - Comoros
-        - Cape Verde
-        - Djibouti
-        - Algeria
-        - Egypt
-        - Eritrea
-        - Western Sahara
-        - Ethiopia
-        - Gabon
-        - Ghana
-        - Guinea
-        - Gambia
-        - Guinea-Bissau
-        - Equatorial Guinea
-        - Kenya
-        - Liberia
-        - Libya
-        - Lesotho
-        - Morocco
-        - Madagascar
-        - Mali
-        - Mozambique
-        - Mauritania
-        - Mauritius
-        - Malawi
-        - Mayotte
-        - Namibia
-        - Niger
-        - Nigeria
-        - Réunion
-        - Rwanda
-        - Sudan
-        - Senegal
-        - Saint Helena, Ascension and Tristan da Cunha
-        - Sierra Leone
-        - Somalia
-        - South Sudan
-        - Sao Tome and Principe
-        - Eswatini
-        - Seychelles
-        - Chad
-        - Togo
-        - Tunisia
-        - Tanzania, United Republic of
-        - Uganda
-        - South Africa
-        - Zambia
-        - Zimbabwe
+        - "Angola"
+        - "Burundi"
+        - "Benin"
+        - "Burkina Faso"
+        - "Botswana"
+        - "Central African Republic"
+        - "Côte d'Ivoire"
+        - "Cameroon"
+        - "Democratic Republic of the Congo"
+        - "Republic of Congo"
+        - "Comoros"
+        - "Cape Verde"
+        - "Djibouti"
+        - "Algeria"
+        - "Egypt"
+        - "Eritrea"
+        - "Western Sahara"
+        - "Ethiopia"
+        - "Gabon"
+        - "Ghana"
+        - "Guinea"
+        - "Gambia"
+        - "Guinea-Bissau"
+        - "Equatorial Guinea"
+        - "Kenya"
+        - "Liberia"
+        - "Libya"
+        - "Lesotho"
+        - "Morocco"
+        - "Madagascar"
+        - "Mali"
+        - "Mozambique"
+        - "Mauritania"
+        - "Mauritius"
+        - "Malawi"
+        - "Mayotte"
+        - "Namibia"
+        - "Niger"
+        - "Nigeria"
+        - "Réunion"
+        - "Rwanda"
+        - "Sudan"
+        - "Senegal"
+        - "Saint Helena, Ascension and Tristan da Cunha"
+        - "Sierra Leone"
+        - "Somalia"
+        - "South Sudan"
+        - "Sao Tome and Principe"
+        - "Eswatini"
+        - "Seychelles"
+        - "Chad"
+        - "Togo"
+        - "Tunisia"
+        - "Tanzania, United Republic of"
+        - "Uganda"
+        - "South Africa"
+        - "Zambia"
+        - "Zimbabwe"
     Antarctica:
-        - Bouvet Island
-        - Heard Island and McDonald Islands
-        - Antarctica
-        - French Southern Territories
+        - "Bouvet Island"
+        - "Heard Island and McDonald Islands"
+        - "Antarctica"
+        - "French Southern Territories"
     Asia:
-        - Afghanistan
-        - United Arab Emirates
-        - Armenia
-        - Azerbaijan
-        - Bangladesh
-        - Bahrain
-        - Brunei Darussalam
-        - Bhutan
-        - Cocos (Keeling) Islands
-        - China
-        - Christmas Island
-        - Cyprus
-        - Georgia
-        - Hong Kong
-        - Indonesia
-        - India
+        - "Afghanistan"
+        - "United Arab Emirates"
+        - "Armenia"
+        - "Azerbaijan"
+        - "Bangladesh"
+        - "Bahrain"
+        - "Brunei"
+        - "Bhutan"
         # bad population data, breaks GEGIS
-        # - British Indian Ocean Territory
-        - Iran, Islamic Republic of
-        - Iraq
-        - Israel
-        - Jordan
-        - Japan
-        - Kazakhstan
-        - Kyrgyzstan
-        - Cambodia
+        # - "Cocos (Keeling) Islands"
+        - "China"
+        # bad population data, breaks GEGIS
+        # - "Christmas Island"
+        - "Cyprus"
+        - "Georgia"
+        - "Hong Kong"
+        - "Indonesia"
+        - "India"
+        # bad population data, breaks GEGIS
+        # - "British Indian Ocean Territory"
+        - "Iran"
+        - "Iraq"
+        - "Israel"
+        - "Jordan"
+        - "Japan"
+        - "Kazakhstan"
+        - "Kyrgyzstan"
+        - "Cambodia"
         # Do not use official designation here to prevent error from single quote character loading
         # with julia + yaml
-        # - Korea, Republic of
-        - South Korea
-        - Kuwait
+        # - "Korea, Republic of"
+        - "South Korea"
+        - "Kuwait"
         # Do not use official designation here to prevent error from single quote character loading
         # with julia + yaml
-        # - Lao People's Democratic Republic
-        - Laos
-        - Lebanon
-        - Sri Lanka
-        - Macao
-        - Maldives
-        - Myanmar
-        - Mongolia
-        - Malaysia
-        - Nepal
-        - Oman
-        - Pakistan
-        - Philippines
+        # - "Lao People's Democratic Republic"
+        - "Laos"
+        - "Lebanon"
+        - "Sri Lanka"
+        - "Macao"
+        - "Maldives"
+        - "Myanmar"
+        - "Mongolia"
+        - "Malaysia"
+        - "Nepal"
+        - "Oman"
+        - "Pakistan"
+        - "Philippines"
         # Do not use official designation here to prevent error from single quote character loading
         # with julia + yaml
-        # - Korea, Democratic People's Republic of
-        - North Korea
-        - Palestine, State of
-        - Qatar
-        - Saudi Arabia
-        - Singapore
-        - Syrian Arab Republic
-        - Thailand
-        - Tajikistan
-        - Turkmenistan
-        - Timor-Leste
-        - Turkey
-        - Taiwan
-        - Uzbekistan
-        - Viet Nam
-        - Yemen
+        # - "Korea, Democratic People's Republic of"
+        - "North Korea"
+        - "Palestine, State of"
+        - "Qatar"
+        - "Saudi Arabia"
+        - "Singapore"
+        - "Syrian Arab Republic"
+        - "Thailand"
+        - "Tajikistan"
+        - "Turkmenistan"
+        - "Timor-Leste"
+        - "Turkey"
+        - "Taiwan"
+        - "Uzbekistan"
+        - "Viet Nam"
+        - "Yemen"
     Europe:
-        - Åland Islands
-        - Albania
-        - Andorra
-        - Austria
-        - Belgium
-        - Bulgaria
-        - Bosnia and Herzegovina
-        - Belarus
-        - Switzerland
-        - Czech Republic
-        - Germany
-        - Denmark
-        - Spain
-        - Estonia
-        - Finland
-        - France
-        - Faroe Islands
-        - United Kingdom
-        - Guernsey
-        - Gibraltar
-        - Greece
-        - Croatia
-        - Hungary
-        - Isle of Man
-        - Ireland
-        - Iceland
-        - Italy
-        - Jersey
-        - Liechtenstein
-        - Lithuania
-        - Luxembourg
-        - Latvia
-        - Monaco
-        - Moldova, Republic of
-        - North Macedonia
-        - Malta
-        - Montenegro
-        - Netherlands
-        - Norway
-        - Poland
-        - Portugal
-        - Romania
-        - Russian Federation
-        - Svalbard and Jan Mayen
-        - San Marino
-        - Serbia
-        - Slovakia
-        - Slovenia
-        - Sweden
-        - Ukraine
-        - Holy See (Vatican City State)
+        - "Åland Islands"
+        - "Albania"
+        - "Andorra"
+        - "Austria"
+        - "Belgium"
+        - "Bulgaria"
+        - "Bosnia and Herzegovina"
+        - "Belarus"
+        - "Switzerland"
+        - "Czech Republic"
+        - "Germany"
+        - "Denmark"
+        - "Spain"
+        - "Estonia"
+        - "Finland"
+        - "France"
+        - "Faroe Islands"
+        - "United Kingdom"
+        # bad population data, breaks GEGIS
+        # - "Guernsey"
+        - "Gibraltar"
+        - "Greece"
+        - "Croatia"
+        - "Hungary"
+        - "Isle of Man"
+        - "Ireland"
+        - "Iceland"
+        - "Italy"
+        # bad population data, breaks GEGIS
+        # - "Jersey"
+        - "Liechtenstein"
+        - "Lithuania"
+        - "Luxembourg"
+        - "Latvia"
+        - "Monaco"
+        - "Moldova"
+        - "North Macedonia"
+        - "Malta"
+        - "Montenegro"
+        - "Netherlands"
+        - "Norway"
+        - "Poland"
+        - "Portugal"
+        - "Romania"
+        - "Russian Federation"
+        - "Svalbard and Jan Mayen"
+        - "San Marino"
+        - "Serbia"
+        - "Slovakia"
+        - "Slovenia"
+        - "Sweden"
+        - "Ukraine"
+        - "Vatican City"
     NorthAmerica:
-        - Aruba
-        - Anguilla
-        - Antigua and Barbuda
-        - Bonaire, Sint Eustatius and Saba
-        - Bahamas
-        - Saint Barthélemy
-        - Belize
-        - Bermuda
-        - Barbados
-        - Canada
-        - Costa Rica
-        - Cuba
-        - Curaçao
-        - Cayman Islands
-        - Dominica
-        - Dominican Republic
-        - Guadeloupe
-        - Grenada
-        - Greenland
-        - Guatemala
-        - Honduras
-        - Haiti
-        - Jamaica
-        - Saint Kitts and Nevis
-        - Saint Lucia
-        - Saint Martin (French part)
-        - Mexico
-        - Montserrat
-        - Martinique
-        - Nicaragua
-        - Panama
-        - Puerto Rico
-        - El Salvador
-        - Saint Pierre and Miquelon
-        - Sint Maarten (Dutch part)
-        - Turks and Caicos Islands
-        - Trinidad and Tobago
-        - United States Minor Outlying Islands
-        - United States
-        - Saint Vincent and the Grenadines
-        - Virgin Islands, British
-        - Virgin Islands, U.S.
+        # bad population data, breaks GEGIS
+        # - "Aruba"
+        # bad population data, breaks GEGIS
+        # - "Anguilla"
+        - "Antigua and Barbuda"
+        - "Bonaire, Sint Eustatius and Saba"
+        - "Bahamas"
+        - "Saint Barthélemy"
+        - "Belize"
+        # bad population data, breaks GEGIS
+        # - "Bermuda"
+        - "Barbados"
+        - "Canada"
+        - "Costa Rica"
+        - "Cuba"
+        - "Curaçao"
+        # bad population data, breaks GEGIS
+        # - "Cayman Islands"
+        - "Dominica"
+        - "Dominican Republic"
+        - "Guadeloupe"
+        - "Grenada"
+        - "Greenland"
+        - "Guatemala"
+        - "Honduras"
+        - "Haiti"
+        - "Jamaica"
+        - "Saint Kitts and Nevis"
+        - "Saint Lucia"
+        - "Saint Martin (French part)"
+        - "Mexico"
+        - "Montserrat"
+        - "Martinique"
+        - "Nicaragua"
+        - "Panama"
+        - "Puerto Rico"
+        - "El Salvador"
+        - "Saint Pierre and Miquelon"
+        - "Sint Maarten (Dutch part)"
+        - "Turks and Caicos Islands"
+        - "Trinidad and Tobago"
+        - "United States Minor Outlying Islands"
+        - "United States"
+        - "Saint Vincent and the Grenadines"
+        - "Virgin Islands, British"
+        - "Virgin Islands, U.S."
     Oceania:
         # bad population data, breaks GEGIS
-        # - American Samoa
-        - Australia
-        - Cook Islands
-        - Fiji
-        - Micronesia, Federated States of
-        - Guam
-        - Kiribati
-        - Marshall Islands
-        - Northern Mariana Islands
-        - New Caledonia
-        - Norfolk Island
-        - Niue
-        - Nauru
-        - New Zealand
-        - Pitcairn
-        - Palau
-        - Papua New Guinea
-        - French Polynesia
-        - Solomon Islands
-        - Tokelau
-        - Tonga
-        - Tuvalu
-        - Vanuatu
-        - Wallis and Futuna
-        - Samoa
+        # - "American Samoa"
+        - "Australia"
+        # bad population data, breaks GEGIS
+        # - "Cook Islands"
+        - "Fiji"
+        # bad population data, breaks GEGIS
+        # - "Micronesia, Federated States of"
+        - "Guam"
+        - "Kiribati"
+        # bad population data, breaks GEGIS
+        # - "Marshall Islands"
+        - "Northern Mariana Islands"
+        - "New Caledonia"
+        - "Norfolk Island"
+        - "Niue"
+        - "Nauru"
+        - "New Zealand"
+        - "Pitcairn"
+        - "Palau"
+        - "Papua New Guinea"
+        - "French Polynesia"
+        - "Solomon Islands"
+        - "Tokelau"
+        - "Tonga"
+        - "Tuvalu"
+        - "Vanuatu"
+        - "Wallis and Futuna"
+        - "Samoa"
     SouthAmerica:
-        - Argentina
-        - Bolivia
-        - Brazil
-        - Chile
-        - Colombia
-        - Ecuador
-        - Falkland Islands (Malvinas)
-        - French Guiana
-        - Guyana
-        - Peru
-        - Paraguay
-        - South Georgia and the South Sandwich Islands
-        - Suriname
-        - Uruguay
-        - Venezuela, Bolivarian Republic of
+        - "Argentina"
+        - "Bolivia"
+        - "Brazil"
+        - "Chile"
+        - "Colombia"
+        - "Ecuador"
+        - "Falkland Islands"
+        - "French Guiana"
+        - "Guyana"
+        - "Peru"
+        - "Paraguay"
+        # bad population data, breaks GEGIS
+        # - "South Georgia and the South Sandwich Islands"
+        - "Suriname"
+        - "Uruguay"
+        - "Venezuela"
