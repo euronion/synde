@@ -65,7 +65,8 @@ rule create_ssp_scenario:
 # Create the region based on areas from GADM 
 rule create_region:
     input:
-        "resources/gegis/gadm.tif",
+        gadm="resources/gegis/gadm.tif",
+        region_definitions="config/regions.yaml"
     output:
         "resources/gegis/regions_{region}.jld"
     script:

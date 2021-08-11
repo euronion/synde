@@ -2,9 +2,11 @@
 using Pkg
 Pkg.activate("./workflow/envs")
 using GlobalEnergyGIS
+import YAML
 
 region_name = snakemake.wildcards["region"]
-gadm_members = snakemake.config["regions"][region_name]
+region_definitions = YAML.load_file(snakemake.input["region_definitions"])
+gadm_members = region_definitions["regions"][region_name]
 
 # Ensure members are alphabetically sorted
 gadm_members = sort(gadm_members)
