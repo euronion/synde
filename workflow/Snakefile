@@ -12,7 +12,7 @@ wildcard_constraints:
 # All combinations to create synthetic demands for
 rule all:
     input:
-        expand("resources/syn_demand/{ssp}-{rcp}/{ssp_year}/{era_year}/{region}.jld",
+        expand("results/{ssp}-{rcp}/{ssp_year}/era5_{era_year}/{region}.nc",
             # ssp=["ssp1","ssp2","ssp3","ssp4","ssp5"],
             # rcp=["1.9","2.6","3.4","4.5"],
             # ssp_year=[2030,2040,2050,2100],
@@ -85,27 +85,12 @@ rule create_synthetic_demand:
     script:
         "scripts/synthesize_demand.jl"
 
-""" 
-# Under constructions
-
-# Convert GEGIS file structure to netcdf for further processing
-# (synthetic demand)
-rule combine_GEGIS_demand:
+rule convert_to_output_format:
     input:
-        config["GlobalEnergyGIS"][
-            "base_dir"
-        ] + "output/SyntheticDemand_{region}_" + config["GlobalEnergyGIS"][
-            "synthetic_demand"
-        ][
-            "ssp_scenario"
-        ] + "-" + str(
-            config["GlobalEnergyGIS"]["synthetic_demand"]["ssp_year"]
-        ) + "_{era_year}.jld",
+        demand="resources/syn_demand/{ssp}-{rcp}/{ssp_year}/{era_year}/{region}.jld",
+        region_definitions="config/regions.yaml"
     output:
-        netcdf="resources/demand_{region}_{era_year}.nc",
-        csv="resources/demand_annual_{region}_{era_year}.csv",
-    log:
-        "logs/GEGIS/combine_GEGIS_demand/{region}_{era_year}.log",
-    script:
-        "../actions/combine_GEGIS_demand.py"
- """
+        csv="results/{ssp}-{rcp}/{ssp_year}/era5_{era_year}/{region}.csv",
+        netcdf="results/{ssp}-{rcp}/{ssp_year}/era5_{era_year}/{region}.nc"
+    notebook:
+        "notebooks/convert_to_output_format.py.ipynb"
