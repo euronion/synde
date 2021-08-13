@@ -1,4 +1,8 @@
+<!--
+SPDX-FileCopyrightText: 2021 Johannes Hampp <johannes.hampp@zeu.jlug.de>
 
+SPDX-License-Identifier: CC-BY-4.0
+-->
 
 ## Installation
 
@@ -113,3 +117,10 @@ Important notes:
     this was then done manually and the faulty step removed from the `GlobalEnergyGIS`,
     then the step was repeated.
 
+## License
+
+Copyright 2021 by Johannes Hampp .
+
+This code is licensed under [MIT](LICENSES/MIT.txt).
+The [Readme.md](Readme.md) file is licensed as [CC-BY-4.0](LICENSES/CC-BY-4.0.txt).
+The configuration files are licensed [CC0-1.0](LICENSES/CC0-1.0.txt).

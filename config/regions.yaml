@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2021 Johannes Hampp <johannes.hampp@zeu.jlug.de>
+#
+# SPDX-License-Identifier: CC0-1.0
+
 # Note: This file is separate from the config.yaml file (albeit I would regularly integrate it there)
 # The reason is that the config.yaml file is loaded by Snakemake upon execution
 # For (a to me unknown reason) the single quote in the country name for "Côte d'Ivoire" breaks
