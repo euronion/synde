@@ -25,16 +25,75 @@
     
     (envs) pkg> instantiate
     ```
-3. Configure `GlobalEnergyGIS` with user account data and work folder location
+3. Configure `GlobalEnergyGIS` (GEGIS) with user account data and work folder location
     ```
     julia> using GlobalEnergyGIS
 
     julia> saveconfig(string(pwd(),"/","resources/gegis"), <your CopernicusID>, "<your Copernicus API key>", agree_terms=true)
     ```
-    For instruction what to enter for `<your ...>` see the [GEGIS documentation](https://github.com/niclasmattsson/GlobalEnergyGIS#2-create-config-files-and-agree-to-dataset-terms).
+    For instruction what to enter for `<your ...>` see the [the first steps of the GEGIS documentation](https://github.com/niclasmattsson/GlobalEnergyGIS#2-create-config-files-and-agree-to-dataset-terms) on how to setup GEGIS.
 
+## Region selection and definitions
 
+The `snakemake` workflow describe below creates *regions*  for `GlobalEnergyGIS` to work on.
+The regions are defined in [config/regions.yaml](./config/regions.yaml).
+The definitions contain:
 
+* The region name (e.g. Africa)
+* The subregions associated with the region, with an entry for each region specifying
+    * An uniquely identifying code (e.g. ISO 3166-2 two letter country code for countries)
+    * The subregion name as recognised by GlobalEnergyGIS, i.e. as recognised by the [GADM database](https://gadm.org/maps.html) (version 2.8 / 2018)
+* example entry for a region with one subregion:
+    ```
+    my_region:
+        CH: Switzerland
+    ```
+
+> Note:
+> Some subregions may not work as they break the GlobalEnergyGIS algorithm,
+> which fails to determine population centers for very small or sparsely populated
+> subregions. The following subregions are therefore missing from the definition
+> and no synthetic demand is created for them:
+>
+> - "Antarctica"
+> - "Bouvet Island"
+> - "Heard Island and McDonald Islands"
+> - "French Southern Territories"
+> - "Saint Helena, Ascension and Tristan da Cunha""
+> - "Cocos (Keeling) Islands"
+> - "Christmas Island"
+> - "British Indian Ocean Territory"
+> - "Korea, Republic of"
+> - "Lao People's Democratic Republic"
+> - "Macao"
+> - "Guernsey"
+> - "Jersey"
+> - "Monaco"
+> - "Svalbard and Jan Mayen"
+> - "Aruba"
+> - "Anguilla"
+> - "Saint-Barthélemy"
+> - "Bermuda"
+> - "Cayman Islands"
+> - "Saint Kitts and Nevis"
+> - "Saint Martin (French part)"
+> - "Montserrat"
+> - "Sint Maarten (Dutch part)"
+> - "United States Minor Outlying Islands"
+> - "Virgin Islands, British"
+> - "Virgin Islands, U.S."
+> - "American Samoa"
+> - "Cook Islands"
+> - "Micronesia, Federated States of"
+> - "Marshall Islands"
+> - "Norfolk Island"
+> - "Niue"
+> - "Nauru"
+> - "Pitcairn"
+> - "Tokelau"
+> - "Tuvalu"
+> - "Wallis and Futuna"
+> - "South Georgia and the South Sandwich Islands"
 
 ## Snakemake workflow
 
