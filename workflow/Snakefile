@@ -55,7 +55,7 @@ rule create_ssp_scenario:
         "resources/gegis/SSP v2 Final Energy - Electricity.csv",
     output:
         "resources/gegis/population_{ssp_scenario}_{ssp_year}.jld",
-        "resources/gegis/gdp_{ssp}_{ssp_year}.jld",
+        "resources/gegis/gdp_{ssp_scenario}_{ssp_year}.jld",
     script:
         "scripts/create_ssp_scenario.jl"
 
