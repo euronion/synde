@@ -2,9 +2,6 @@
 #
 # SPDX-License-Identifier: MIT
 
-from snakemake.utils import Paramspace
-import pandas as pd
-
 configfile: "config/config.yaml"
 
 wildcard_constraints:
@@ -17,24 +14,19 @@ wildcard_constraints:
 rule all:
     input:
         expand("results/{ssp}-{rcp}/{ssp_year}/era5_{era_year}/{region}.nc",
-            # ssp=["ssp1","ssp2","ssp3","ssp4","ssp5"],
-            # rcp=["1.9","2.6","3.4","4.5"],
-            # ssp_year=[2030,2040,2050,2100],
-            # era_year=[2011,2018],
-            ssp=["ssp2"],
-            rcp=["2.6"],
-            ssp_year=[2050],
-            era_year=[2011],
-            region=['Africa', 'Asia', 'Europe', 'NorthAmerica', 'SouthAmerica', 'Oceania']
+            ssp=["ssp1","ssp2","ssp3","ssp4","ssp5"],
+            rcp=["1.9","2.6","3.4","4.5"],
+            ssp_year=[2030,2040,2050,2100],
+            era_year=[2011,2012,2013,2018],
+            region=["Africa", "Asia", "Europe", "NorthAmerica", "SouthAmerica", "Oceania"]
         )
-
-# - GEGIS rules: Require Julia to be setup seperately, see Readme.md - #
 
 # Download auxiliary datasets
 rule download_datasets:
     output:
         # not full list, only some dependencies (proxy other data)
-        expand("resources/gegis/{dataset}",
+        expand(
+            "resources/gegis/{dataset}",
             dataset=[
                 "era5monthlysolar.h5",
                 "era5monthlywind.h5",
@@ -42,8 +34,9 @@ rule download_datasets:
                 "gadm.tif",
                 "protected.jld",
                 "landcover.jld",
-                "SSP v2 Final Energy - Electricity.csv"
-            ]),
+                "SSP v2 Final Energy - Electricity.csv",
+            ],
+        ),
     script:
         "scripts/download_datasets.jl"
 
@@ -52,29 +45,30 @@ rule download_weather_data:
     output:
         "resources/gegis/era5wind{era_year}.h5",
         "resources/gegis/era5solar{era_year}.h5",
-        "resources/gegis/era5temp{era_year}.h5"
+        "resources/gegis/era5temp{era_year}.h5",
     script:
         "scripts/download_weather_data.jl"
 
 rule create_ssp_scenario:
     input:
         # Proxy file for all input files from download_datasets
-        "resources/gegis/SSP v2 Final Energy - Electricity.csv"
+        "resources/gegis/SSP v2 Final Energy - Electricity.csv",
     output:
         "resources/gegis/population_{ssp}_{ssp_year}.jld",
-        "resources/gegis/gdp_{ssp}_{ssp_year}.jld"
+        "resources/gegis/gdp_{ssp}_{ssp_year}.jld",
     script:
         "scripts/create_ssp_scenario.jl"
 
-# Create the region based on areas from GADM 
+# Create the region based on areas from GADM
 rule create_region:
     input:
         gadm="resources/gegis/gadm.tif",
-        region_definitions="config/regions.yaml"
+        region_definitions="config/regions.yaml",
     output:
-        "resources/gegis/regions_{region}.jld"
+        "resources/gegis/regions_{region}.jld",
     script:
-        "scripts/create_region.jl"    
+        "scripts/create_region.jl"
+
 
 # Generate synthetic electricity demand
 # for a region/weather base year/SSP scenario/RCP scenario/SSP year
@@ -83,18 +77,19 @@ rule create_synthetic_demand:
         "resources/gegis/regions_{region}.jld",
         "resources/gegis/era5temp{era_year}.h5",
         "resources/gegis/population_{ssp}_{ssp_year}.jld",
-        "resources/gegis/gdp_{ssp}_{ssp_year}.jld"
+        "resources/gegis/gdp_{ssp}_{ssp_year}.jld",
     output:
-        "resources/syn_demand/{ssp}-{rcp}/{ssp_year}/{era_year}/{region}.jld"
+        "resources/syn_demand/{ssp}-{rcp}/{ssp_year}/{era_year}/{region}.jld",
     script:
         "scripts/synthesize_demand.jl"
+
 
 rule convert_to_output_format:
     input:
         demand="resources/syn_demand/{ssp}-{rcp}/{ssp_year}/{era_year}/{region}.jld",
-        region_definitions="config/regions.yaml"
+        region_definitions="config/regions.yaml",
     output:
         csv="results/{ssp}-{rcp}/{ssp_year}/era5_{era_year}/{region}.csv",
-        netcdf="results/{ssp}-{rcp}/{ssp_year}/era5_{era_year}/{region}.nc"
+        netcdf="results/{ssp}-{rcp}/{ssp_year}/era5_{era_year}/{region}.nc",
     notebook:
         "notebooks/convert_to_output_format.py.ipynb"
