@@ -157,7 +157,7 @@ regions:
     MK: Macedonia
     MT: Malta
     NL: Netherlands
-    NO: Norway
+    "NO": Norway
     PL: Poland
     PT: Portugal
     RO: Romania
