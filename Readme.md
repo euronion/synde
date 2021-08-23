@@ -99,9 +99,7 @@ The definitions contain:
 > - "Wallis and Futuna"
 > - "South Georgia and the South Sandwich Islands"
 
-## Snakemake workflow
-
-Important notes:
+## Caveats, Limitations, Manual interventions
 
 * In the used version (2021-08-09) during the `download_datasets()` step,
     the protected land database (WDPA) did not download correctly, possibly due to a wrong URL.
@@ -116,6 +114,23 @@ Important notes:
     The files were extracted but failed to be moved to the correct location,
     this was then done manually and the faulty step removed from the `GlobalEnergyGIS`,
     then the step was repeated.
+* A fix to the timezone handling in GEGIS from this [GitHub PR](https://github.com/niclasmattsson/GlobalEnergyGIS/pull/14) was applied.
+* The demand projection does not work for some countries, e.g. Mauritania.
+  Affected countries are shown in grey in the world map example below.
+* SSP4 and SSP5 are not available in GEGIS and thus this workflow.
+
+## Example data
+
+This workflow produces synthetic hourly resolved electricity demand under various scenarios.
+
+Excerpt Germany hourly resolved electricity demand for different target years and ERA5 basis years for the SSP2-RCP2.6 scenario.
+![Excerpt Germany hourly resolved electricity demand for different target years and ERA5 basis years](doc/figures/DE_hourly-demand-excerpt_multi-years_multi-erayears.png)
+
+Statistical representation of German electricity demand for different target years and ERA5 basis years for the SSP2-RCP2.6 scenario.
+![Statistical representation of German electricity demand for different target years and ERA5 basis years for the SSP2-RCP2.6 scenario.](doc/figures/DE_violin-plot_multi-years_multi-erayears.png)
+
+Annual electricity demand by country for 2030 (ERA5 data for 2013) in the SSP2-RCP2.6 scenario:
+![Annual electricity demand by country for 2030 (ERA5 data for 2013) in the SSP2-RCP2.6 scenario.](doc/figures/world_annual-demand_2030.png)
 
 ## License
 
